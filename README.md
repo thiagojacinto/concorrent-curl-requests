@@ -3,13 +3,34 @@ Python script to execute curl requests
 
 ## Usage
 
-With [Python 3.10](https://www.python.org/downloads/) installed, just run the following commands: 
+With [Python 3.10](https://www.python.org/downloads/) installed, clone this repository by doing:
+
 ```bash
 # clone this repo
 git clone https://github.com/thiagojacinto/concurrent-curl-requests.git
 
-# then use the python script
-python3 concurrent-curl-requests/get_server_info_parallel.py
+# then go the project directory
+cd concurrent-curl-requests
+```
+
+### Command-line Interface (CLI) tool
+
+The built-in CLI was developed to give more context of the parallel execution. To use just call the `cli.py` with the following commands:
+
+```bash
+python3 cli.py
+
+# Or see more use cases by running the following:
+python3 cli.py --help
+```
+
+### Python module
+
+You may want to run this code as a simple python script, so just run the following commands: 
+
+```bash
+# Using the python script
+python3 get_server_info_parallel.py
 ```
 
 ## Objective
