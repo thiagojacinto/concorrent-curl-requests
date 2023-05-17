@@ -1,7 +1,7 @@
 import asyncio
 import json
 
-list = [
+DOGS_LIST = [
     "Akita",
     "Borzoi",
     "Chow",
@@ -63,8 +63,10 @@ def report(output_list: list):
         print("\t", item["stdout"]["message"])
 
 
-async def execute_requests():
-    endpoints = ["{}{}{}".format(BASE_URL, item.lower(), BASE_RESOURCE) for item in list]
+async def execute_requests(options_list):
+    """Async function to final format the HTTP request and send it"""
+
+    endpoints = ["{}{}{}".format(BASE_URL, item.lower(), BASE_RESOURCE) for item in options_list]
 
     response_list = await asyncio.gather(
         *[get_info(endpoint) for endpoint in endpoints]
@@ -72,5 +74,10 @@ async def execute_requests():
 
     report(response_list)
 
+def run(program):
+    """Use asyncio's power to run parallel requests"""
+    
+    return asyncio.run(program)
+
 if __name__ == "__main__":
-    asyncio.run(execute_requests())
+    run(execute_requests(DOGS_LIST))
